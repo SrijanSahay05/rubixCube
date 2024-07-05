@@ -1,5 +1,5 @@
 #defined matrices for each cube face
-
+global whiteFace, yellowFace, greenFace, blueFace, redFace, orangeFace
 whiteFace = [['w00','w01','w02'],
              ['w10','w11','w12'],
              ['w20','w21','w22']]
@@ -28,7 +28,7 @@ emptyFace = [[' ',' ',' '],
              [' ',' ',' ']]
 
 def render():
-    global whiteFace, yellowFace, greenFace, blueFace, redFace, orangeFace
+    
     print("GreenFace : ")
     for row in greenFace:
         print(row)
@@ -48,6 +48,17 @@ def render():
     for row in orangeFace:
         print(row)      
 
-def right():
-    
-    pass
+def R(n):
+    for counter in range(n):
+        for i in range(3):
+            emptyFace[i][2] = whiteFace[i][2]
+            whiteFace[i][2] = greenFace[i][2]
+            greenFace[i][2] = yellowFace[i][2]
+            yellowFace[i][2] = blueFace[i][2]
+            blueFace[i][2] = emptyFace[i][2]
+
+
+
+R(1)
+
+render()
