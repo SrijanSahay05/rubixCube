@@ -1,9 +1,6 @@
 #defined matrices for each cube face
 global whiteFace, yellowFace, greenFace, blueFace, redFace, orangeFace
-<<<<<<< HEAD
 
-=======
->>>>>>> ab5530232c1c5f1e5aca7b7f3146dcbc2473a03d
 whiteFace = [['w00','w01','w02'],
              ['w10','w11','w12'],
              ['w20','w21','w22']]
@@ -104,5 +101,6 @@ def F(n):
             orangeFace[2][i] = yellowFace[0][2-i]
             yellowFace[0][i] = redFace[2][2-i]
             redFace[2][i] = emptyFace[2][i]
-
+F(1)
+B(1)
 render()
