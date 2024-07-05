@@ -1,6 +1,7 @@
 #defined matrices for each cube face
 global whiteFace, yellowFace, greenFace, blueFace, redFace, orangeFace
 
+
 whiteFace = [['w00','w01','w02'],
              ['w10','w11','w12'],
              ['w20','w21','w22']]
@@ -24,9 +25,11 @@ redFace = [['r00','r01','r02'],
 orangeFace = [['o00','o01','o02'],
               ['o10','o11','o12'],
               ['o20','o21','o22']]
+
 emptyFace = [[' ',' ',' '],
              [' ',' ',' '],
              [' ',' ',' ']]
+
 #CLI rendering of cube
 def render():
     print("GreenFace : ")
@@ -48,6 +51,41 @@ def render():
     for row in orangeFace:
         print(row)      
 #Defined Basic Cube Moves, Refer rubixCube/RubixCubeGraphics.png for reference. Put the center numbering in correct orientation before comparing
+def faceRotation(face):
+    pass
+    #faceRotation did not work. 
+    
+
+def R(n):
+    for counter in range(n):
+        for i in range(3):
+            emptyFace[i][2] = whiteFace[i][2]
+            whiteFace[i][2] = greenFace[i][2]
+            greenFace[i][2] = yellowFace[i][2]
+            yellowFace[i][2] = blueFace[i][2]
+            blueFace[i][2] = emptyFace[i][2]
+
+
+def U(n):
+    for counter in range(n):
+        for i in range(3):
+            emptyFace[0][i] = greenFace[0][i]
+            greenFace[0][i] = redFace[2-i][0]
+            redFace[i][0] = blueFace[2][i]
+            blueFace[2][i] = orangeFace[2-i][2]
+            orangeFace[i][2] = emptyFace[0][i]
+
+
+def F(n):
+    for counter in range(n):
+        for i in range(3):
+            emptyFace[2][i] = whiteFace[2][i]
+            whiteFace[2][i] = orangeFace[2][i]
+            orangeFace[2][i] = yellowFace[0][2-i]
+            yellowFace[0][i] = redFace[2][2-i]
+            redFace[2][i] = emptyFace[2][i]
+
+    
 def L(n):
     for counter in range(n):
         for i in range(3):
@@ -56,6 +94,7 @@ def L(n):
             blueFace[i][0] = yellowFace[i][0]
             yellowFace[i][0] = greenFace[i][0]
             greenFace[i][0] = emptyFace[i][0]
+
 
 def D(n):
     for counter in range(n):
@@ -66,6 +105,7 @@ def D(n):
             blueFace[0][i] = redFace[i][2]
             redFace[i][2] = emptyFace[2][2-i]
 
+
 def B(n):
     for counter in range(n):
         for i in range(3):
@@ -75,28 +115,6 @@ def B(n):
             yellowFace[2][2-i] = orangeFace[0][i]
             orangeFace[0][i] = emptyFace[0][i]
 
-def R(n):
-    for counter in range(n):
-        for i in range(3):
-            emptyFace[i][2] = whiteFace[i][2]
-            whiteFace[i][2] = greenFace[i][2]
-            greenFace[i][2] = yellowFace[i][2]
-            yellowFace[i][2] = blueFace[i][2]
-            blueFace[i][2] = emptyFace[i][2]
-def U(n):
-    for counter in range(n):
-        for i in range(3):
-            emptyFace[0][i] = greenFace[0][i]
-            greenFace[0][i] = redFace[2-i][0]
-            redFace[i][0] = blueFace[2][i]
-            blueFace[2][i] = orangeFace[2-i][2]
-            orangeFace[i][2] = emptyFace[0][i]
-def F(n):
-    for counter in range(n):
-        for i in range(3):
-            emptyFace[2][i] = whiteFace[2][i]
-            whiteFace[2][i] = orangeFace[2][i]
-            orangeFace[2][i] = yellowFace[0][2-i]
-            yellowFace[0][i] = redFace[2][2-i]
-            redFace[2][i] = emptyFace[2][i]
+
+
 render()
