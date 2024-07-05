@@ -29,7 +29,8 @@ emptyFace = [[' ',' ',' '],
              [' ',' ',' '],
              [' ',' ',' ']]
 
-def render():
+#Function to render out cube
+def render():                           
     
     print("GreenFace : ")
     for row in greenFace:
@@ -50,6 +51,7 @@ def render():
     for row in orangeFace:
         print(row)      
 
+#Defined basic cube moves, refer RubixCubeGraphics.png
 def L(n):
     for counter in range(n):
         for i in range(3):
@@ -102,5 +104,5 @@ def F(n):
             orangeFace[2][i] = yellowFace[0][2-i]
             yellowFace[0][i] = redFace[2][2-i]
             redFace[2][i] = emptyFace[2][i]
-            
+
 render()
