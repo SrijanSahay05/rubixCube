@@ -102,6 +102,5 @@ def F(n):
             orangeFace[2][i] = yellowFace[0][2-i]
             yellowFace[0][i] = redFace[2][2-i]
             redFace[2][i] = emptyFace[2][i]
-F(1)
-B(1)
+            
 render()
