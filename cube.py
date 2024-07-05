@@ -23,6 +23,31 @@ redFace = [['r00','r01','r02'],
 orangeFace = [['o00','o01','o02'],
               ['o10','o11','o12'],
               ['o20','o21','o22']]
+emptyFace = [[' ',' ',' '],
+             [' ',' ',' '],
+             [' ',' ',' ']]
 
 def render():
+    global whiteFace, yellowFace, greenFace, blueFace, redFace, orangeFace
+    print("GreenFace : ")
+    for row in greenFace:
+        print(row)
+    print("whiteFace : ")
+    for row in whiteFace:
+        print(row)
+    print("BlueFace : ")
+    for row in blueFace:
+        print(row)
+    print("YellowFace : ")
+    for row in yellowFace:
+        print(row)
+    print("RedFace : ")
+    for row in redFace:
+        print(row)
+    print("OrangeFace : ")
+    for row in orangeFace:
+        print(row)      
+
+def right():
+    
     pass
