@@ -56,9 +56,13 @@ def R(n):
             greenFace[i][2] = yellowFace[i][2]
             yellowFace[i][2] = blueFace[i][2]
             blueFace[i][2] = emptyFace[i][2]
-
-
-
-R(1)
-
+def U(n):
+    for counter in range(n):
+        for i in range(3):
+            emptyFace[0][i] = greenFace[0][i]
+            greenFace[0][i] = redFace[2-i][0]
+            redFace[i][0] = blueFace[2][i]
+            blueFace[2][i] = orangeFace[2-i][2]
+            orangeFace[i][2] = emptyFace[0][i]
+U(1)
 render()
