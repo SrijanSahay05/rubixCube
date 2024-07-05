@@ -1,5 +1,5 @@
 #defined matrices for each cube face
-global whiteFace, yellowFace, greenFace, blueFace, redFace, orangeFace
+global whiteFace, yellowFace, greenFace, blueFace, redFace, orangeFace, emptyFace
 
 
 whiteFace = [['w00','w01','w02'],
@@ -51,9 +51,14 @@ def render():
     for row in orangeFace:
         print(row)      
 #Defined Basic Cube Moves, Refer rubixCube/RubixCubeGraphics.png for reference. Put the center numbering in correct orientation before comparing
-def faceRotation(face):
-    pass
-    #faceRotation did not work. 
+def faceRotation(face): # will later optimise to do without use of buffer matrix
+    for i in range(3):
+        for j in range(3):
+            emptyFace[j][2-i] = face[i][j]
+    for i in range(3):
+        for j in range(3):
+            face[i][j] = emptyFace[i][j]    
+    #could not directly assign values to face from empty face
     
 
 def R(n):
@@ -64,7 +69,7 @@ def R(n):
             greenFace[i][2] = yellowFace[i][2]
             yellowFace[i][2] = blueFace[i][2]
             blueFace[i][2] = emptyFace[i][2]
-
+    faceRotation(redFace)
 
 def U(n):
     for counter in range(n):
@@ -74,7 +79,7 @@ def U(n):
             redFace[i][0] = blueFace[2][i]
             blueFace[2][i] = orangeFace[2-i][2]
             orangeFace[i][2] = emptyFace[0][i]
-
+    faceRotation(whiteFace)
 
 def F(n):
     for counter in range(n):
@@ -84,7 +89,7 @@ def F(n):
             orangeFace[2][i] = yellowFace[0][2-i]
             yellowFace[0][i] = redFace[2][2-i]
             redFace[2][i] = emptyFace[2][i]
-
+    faceRotation(greenFace)
     
 def L(n):
     for counter in range(n):
@@ -94,7 +99,7 @@ def L(n):
             blueFace[i][0] = yellowFace[i][0]
             yellowFace[i][0] = greenFace[i][0]
             greenFace[i][0] = emptyFace[i][0]
-
+    faceRotation(orangeFace)
 
 def D(n):
     for counter in range(n):
@@ -104,7 +109,7 @@ def D(n):
             orangeFace[i][0] = blueFace[0][2-i]
             blueFace[0][i] = redFace[i][2]
             redFace[i][2] = emptyFace[2][2-i]
-
+    faceRotation(yellowFace)
 
 def B(n):
     for counter in range(n):
@@ -114,6 +119,7 @@ def B(n):
             redFace[0][i] = yellowFace[2][2-i]
             yellowFace[2][2-i] = orangeFace[0][i]
             orangeFace[0][i] = emptyFace[0][i]
+    faceRotation(blueFace)
 
 
 
